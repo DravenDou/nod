@@ -9120,7 +9120,7 @@ test(
                           /check-in/,
                         );
                         await tool('ask_user').execute({
-                          question: 'The synthetic check used six dollars. Continue?',
+                          question: 'The synthetic check used {spent}. Continue?',
                         });
                       },
                     }),
@@ -9159,10 +9159,11 @@ test(
                   assert.equal(await engine.due(), paused);
                   const question = (
                     await db.pool.query(
-                      "SELECT id FROM messages WHERE turn_id=$1 AND owner_id=$2 AND role='assistant'",
+                      "SELECT id,text FROM messages WHERE turn_id=$1 AND owner_id=$2 AND role='assistant'",
                       [paused, ownerId],
                     )
                   ).rows[0];
+                  assert.equal(question.text, 'The synthetic check used $6. Continue?');
                   const answer = await userMessages.submit('Continue the synthetic observer.', [], {
                     replyToMessageId: question.id,
                   });
