@@ -6,7 +6,8 @@
   "connection": {
     "type": "mcp",
     "server": "todoist",
-    "authentication": ["oauth2"]
+    "authentication": ["oauth2"],
+    "scopes": ["data:read_write"]
   },
   "prompts": [
     "Show my Todoist tasks that are due today or overdue.",

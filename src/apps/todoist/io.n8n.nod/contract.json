@@ -1,6 +1,6 @@
 {
   "$schema": "https://nod.n8n.io/docs/schemas/apps/v1/contract.schema.json",
-  "source": "https://github.com/Doist/todoist-ai/blob/main/src/tools/find-projects.ts",
+  "source": "https://developer.todoist.com/api/v1/#tag/Todoist-MCP",
   "tool": {
     "name": "find-projects",
     "description": "List or search by name the projects the user has joined. By default only active projects are returned; use archivedStatus ('archived' or 'all') to include archived projects. When searching, when archivedStatus is 'all', or when listing archived projects in a folder, all matching projects are returned (pagination is ignored). Otherwise projects are returned with pagination. Workspace projects the user hasn't joined are left out unless includeUnjoined is set, or a search matches no joined project.",
